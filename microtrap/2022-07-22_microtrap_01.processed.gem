@@ -1,0 +1,113 @@
+pa_define(401, 401, 161, planar, none, _,, 0.025, 0.025, 0.025,, fractional)
+locate(5, 5, -4) {
+  locate(0, 0, 0,, 90) {
+    e(5) {
+      rotate_fill(360) {
+        within {
+          box3d(-6, 0, 0, 0, 2, 1) ; x1=5, y1=5, z1=2,  x2=7, y2=5, z2=-4
+        }
+        locate(-5, 0, 0,,, 90) {
+          notin {
+            parabola(0, 0, 1) ; x1=5, y1=5, z1=1
+          }
+        }
+      }
+    }
+  }
+  locate(0, 0, 0) {
+    n(0) {
+      fill {
+        within_inside_or_on {
+          box3d(-10, -0.25, 6, 10, 0.25, 5.75) ; x1=-5, y1=4.75, z1=2,  x2=11, y2=15, z2=-3.75
+        }
+        within_inside_or_on {
+          box3d(-0.25, -10, 6, 0.25, 10, 5.75) ; x1=4.75, y1=-5, z1=2,  x2=11, y2=5.25, z2=6
+        }
+      }
+    }
+  }
+  locate(0, 0, 0) {
+    e(6) {
+      fill {
+        within {
+          cylinder(0, 0, 8, 3, 3, 1)
+        }
+        notin_inside_or_on {
+          cylinder(0, 0, 8, 2, 2, 1)
+        }
+      }
+    }
+  }
+  locate(0, 0, 0) {
+    e(1) {
+      fill {
+        within {
+          cylinder(0, 0, 6, 6.35, 6.35, 6)
+        }
+        notin_inside_or_on {
+          cylinder(0, 0, 6, 2, 2, 6)
+        }
+        notin_inside_or_on {
+          box3d(-10, -0.25, 0, 10, 10, 6) ; x1=-5, y1=4.75, z1=-4,  x2=5, y2=15, z2=6
+        }
+        notin_inside_or_on {
+          box3d(-0.25, -10, 0, 10, 10, 6) ; x1=4.75, y1=-5, z1=-4,  x2=5, y2=15, z2=6
+        }
+      }
+    }
+  }
+  locate(0, 0, 0) {
+    e(2) {
+      fill {
+        within {
+          cylinder(0, 0, 6, 6.35, 6.35, 6)
+        }
+        notin_inside_or_on {
+          cylinder(0, 0, 6, 2, 2, 6)
+        }
+        notin_inside_or_on {
+          box3d(-10, -0.25, 0, 10, 10, 6) ; x1=-5, y1=4.75, z1=-4,  x2=5, y2=15, z2=6
+        }
+        notin_inside_or_on {
+          box3d(0.25, -10, 0, -10, 10, 6) ; x1=5.25, y1=-5, z1=-4,  x2=5, y2=-5, z2=6
+        }
+      }
+    }
+  }
+  locate(0, 0, 0) {
+    e(3) {
+      fill {
+        within {
+          cylinder(0, 0, 6, 6.35, 6.35, 6)
+        }
+        notin_inside_or_on {
+          cylinder(0, 0, 6, 2, 2, 6)
+        }
+        notin_inside_or_on {
+          box3d(-10, 0.25, 0, 10, -10, 6) ; x1=-5, y1=5.25, z1=-4,  x2=5, y2=15, z2=-14
+        }
+        notin_inside_or_on {
+          box3d(0.25, -10, 0, -10, 10, 6) ; x1=5.25, y1=-5, z1=-4,  x2=5, y2=-5, z2=6
+        }
+      }
+    }
+  }
+  locate(0, 0, 0) {
+    e(4) {
+      fill {
+        within {
+          cylinder(0, 0, 6, 6.35, 6.35, 6)
+        }
+        notin_inside_or_on {
+          cylinder(0, 0, 6, 2, 2, 6)
+        }
+        notin_inside_or_on {
+          box3d(-10, 0.25, 0, 10, -10, 6) ; x1=-5, y1=5.25, z1=-4,  x2=5, y2=15, z2=-14
+        }
+        notin_inside_or_on {
+          box3d(-0.25, -10, 0, 10, 10, 6) ; x1=4.75, y1=-5, z1=-4,  x2=5, y2=15, z2=6
+        }
+      }
+    }
+  }
+}

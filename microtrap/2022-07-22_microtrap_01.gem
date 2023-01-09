@@ -1,0 +1,107 @@
+; SIMION 8.1 GEM-file
+;
+
+# local scaleX = 40
+# local scaleY = 40
+# local scaleZ = 40
+
+# local Xdim = 10
+# local Ydim = 10
+# local Zdim = 4
+
+;===============================================================================================================
+;=================================== array definition ==========================================================
+;===============================================================================================================
+
+pa_define($(Xdim*scaleX+1),$(Ydim*scaleY+1),$(Zdim*scaleZ+1),planar,none,surface=fractional,e,,$(1/scaleX),$(1/scaleY),$(1/scaleZ))
+
+;===============================================================================================================
+;===============================================================================================================
+;===============================================================================================================
+
+locate($(Xdim/2), $(Ydim/2), -4){
+
+
+; parabola
+locate(0, 0, 0, , 90){		
+	electrode(5){ 	
+		rotate_fill(360){ 	
+			within{	box3D(-6,0,0, 0,2,1)} ; working direction: -z, (-z,0,0, 0,radius,_)	
+			Locate(-5,0,0,,,90){ ; (-z shift parabola,0,0)
+				;notin{ hyperbola(0 , 0 , 2, 5)}
+				notin{ parabola(0,0,1)}
+			}
+		}
+	}
+}
+
+; slits in parabola
+ locate(0, 0, 0  ){		
+	 n(0){ 	
+		 fill{
+			 within_inside_or_on{ box3D( -10, -0.25, 6,    10 , 0.25, 5.75)		}
+			 within_inside_or_on{ box3D( -0.25, -10, 6,    0.25 , 10, 5.75)		}
+		 }
+	 }
+ }
+ 
+; ring
+locate(0, 0, 0  ){		
+	electrode(6){ 	
+		fill{
+			within{ cylinder( 0, 0, 8, 3, 3, 1)		}
+			notin_inside_or_on{ cylinder( 0 , 0 , 8, 2, 2, 1)	}
+		}
+	}
+}	
+
+; seg 1
+locate(0, 0, 0  ){		
+	electrode(1){ 	
+		fill{
+			within{ cylinder( 0, 0, 6, 6.35, 6.35, 6)		}
+			notin_inside_or_on{ cylinder( 0 , 0 , 6, 2, 2, 6)	}
+			notin_inside_or_on{ box3D( -10, -0.25, 0,    10 ,10, 6)	}
+			notin_inside_or_on{ box3D(   -0.25, -10, 0,   10 ,10, 6)	}
+		}
+	}
+}	
+
+; seg 2
+locate(0, 0, 0  ){		
+	electrode(2){ 	
+		fill{
+			within{ cylinder( 0, 0, 6, 6.35, 6.35, 6)		}
+			notin_inside_or_on{ cylinder( 0 , 0 , 6, 2, 2, 6)	}
+			notin_inside_or_on{ box3D( -10, -0.25, 0,    10 ,10, 6)	}
+			notin_inside_or_on{ box3D(   0.25, -10, 0,   -10 ,10, 6)	}
+		}
+	}
+}
+
+; seg 3
+locate(0, 0, 0  ){		
+	electrode(3){ 	
+		fill{
+			within{ cylinder( 0, 0, 6, 6.35, 6.35, 6)		}
+			notin_inside_or_on{ cylinder( 0 , 0 , 6, 2, 2, 6)	}
+			notin_inside_or_on{ box3D( -10,  0.25, 0,    10 ,-10, 6)	}
+			notin_inside_or_on{ box3D(   0.25, -10, 0,   -10 ,10, 6)	}
+		}
+	}
+}
+
+; seg 4
+locate(0, 0, 0  ){		
+	electrode(4){ 	
+		fill{
+			within{ cylinder( 0, 0, 6, 6.35, 6.35, 6)		}
+			notin_inside_or_on{ cylinder( 0 , 0 , 6, 2, 2, 6)	}
+			notin_inside_or_on{ box3D( -10, 0.25, 0,    10 ,-10, 6)	}
+			notin_inside_or_on{ box3D(   -0.25, -10, 0,   10 ,10, 6)	}
+		}
+	}
+}	
+
+
+}
